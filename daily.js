@@ -11,3 +11,18 @@ let argDemo = (param1 = 10, ...args) =>{
     }
     return result;
 };
+
+//Day 2: Passing functions as arguments
+
+function calculateAge(yob) {
+    return 2018 - yob
+  };
+  
+  let calcAnything = (arr, computeLogic) => {
+      let resArr = [];
+        arr.forEach(ele => resArr.push(computeLogic(ele)));
+      return resArr;
+  };
+  
+  let years = [1987, 1988, 2000];
+  console.log(calcAnything(years, calculateAge));
