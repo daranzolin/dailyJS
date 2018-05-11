@@ -76,3 +76,31 @@ var module = {
   var boundGetX = unboundGetX.bind(module);
   console.log(boundGetX());
   // expected output: 42
+
+
+//Day 4: Object prototypes
+/* 
+Nearly all objects in JavaScript are instances of Object; a typical object inherits properties 
+(including methods) from Object.prototype, although these properties may be shadowed 
+(a.k.a. overridden). However, an Object may be deliberately created for which this is 
+not true (e.g. by Object.create(null)), or it may be altered so that this is no longer 
+true (e.g. with Object.setPrototypeOf).
+
+Changes to the Object prototype object are seen by all objects through prototype chaining, 
+unless the properties and methods subject to those changes are overridden further along 
+the prototype chain.  This provides a very powerful although potentially dangerous 
+mechanism to override or extend object behavior. */
+
+function Person(name, yearOfBirth, job) {
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job;
+};
+
+let john = new Person('John', 1990, 'teacher');
+
+Person.prototype.familyName = 'Smith';
+Person.prototype.log = function() {
+    console.log(`Name : ${this.name} Year of Birth ${this.age} , job ${this.job}` )
+
+};
