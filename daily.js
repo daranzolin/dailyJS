@@ -104,3 +104,24 @@ Person.prototype.log = function() {
     console.log(`Name : ${this.name} Year of Birth ${this.age} , job ${this.job}` )
 
 };
+
+//Day 5: String Methods
+
+let str = 'To be, or not to be, that is the question.';
+
+console.log(str.startsWith('To be'));         // true
+console.log(str.startsWith('not to be'));     // false
+
+console.log(str.endsWith('question.')); // true
+console.log(str.endsWith('to be'));     // false
+
+console.log(str.includes('question'));    // true
+console.log(str.includes('nonexistent')); // false
+
+'abc'.repeat(2);    // 'abcabc'
+
+let aString = 'Mozilla';
+
+console.log(aString.substr(0, 1));   // 'M'
+console.log(aString.substr(1, 0));   // ''
+
