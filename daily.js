@@ -125,3 +125,54 @@ let aString = 'Mozilla';
 console.log(aString.substr(0, 1));   // 'M'
 console.log(aString.substr(1, 0));   // ''
 
+//Day 6: try-catch
+
+/* The try...catch statement marks a block of statements to try, and specifies one or more 
+responses should an exception be thrown. If an exception is thrown, the try...catch statement 
+catches it.
+
+The try...catch statement consists of a try block, which contains one or more statements, 
+and a catch block, containing statements that specify what to do if an exception is thrown 
+in the try block. That is, you want the try block to succeed, and if it does not succeed, 
+you want control to pass to the catch block. If any statement within the try block 
+(or in a function called from within the try block) throws an exception, control 
+immediately shifts to the catch block. If no exception is thrown in the try block, 
+the catch block is skipped. The finally block executes after the try and catch blocks 
+execute but before the statements following the try...catch statement. */
+
+function getMonthName(mo) {
+    mo = mo - 1; // Adjust month number for array index (1 = Jan, 12 = Dec)
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
+                  'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    if (months[mo]) {
+      return months[mo];
+    } else {
+      throw 'InvalidMonthNo'; //throw keyword is used here
+    }
+  }
+  
+  try { // statements to try
+    monthName = getMonthName(myMonth); // function could throw exception
+  }
+  catch (e) {
+    monthName = 'unknown';
+    logMyErrors(e); // pass exception object to error handler -> your own function
+  }
+
+  /* The catch block specifies an identifier (catchID in the preceding syntax) that holds the value specified 
+  by the throw statement; you can use this identifier to get information about the exception that was thrown. 
+  JavaScript creates this identifier when the catch block is entered; the identifier lasts only for the duration 
+  of the catch block; after the catch block finishes executing, the identifier is no longer available. */
+
+  openMyFile();
+  try {
+    writeMyFile(theData); //This may throw an error
+  } catch(e) {  
+    handleError(e); // If we got an error we handle it
+  } finally {
+    closeMyFile(); // always close the resource
+  }
+  
+  /* The finally block contains statements to execute after the try and catch blocks execute but before the statements 
+  following the try...catch statement. The finally block executes whether or not an exception is thrown. If an exception is thrown, 
+  the statements in the finally block execute even if no catch block handles the exception. */
