@@ -176,3 +176,22 @@ function getMonthName(mo) {
   /* The finally block contains statements to execute after the try and catch blocks execute but before the statements 
   following the try...catch statement. The finally block executes whether or not an exception is thrown. If an exception is thrown, 
   the statements in the finally block execute even if no catch block handles the exception. */
+
+  //Day 7: Returning the object in a function allows you to chain functions
+
+  function Person(name) {
+    this.name = name;
+  
+    this.sayName = function() {
+      console.log("Hello my name is: ", this.name);
+      return this;
+    };
+  
+    this.changeName = function(name) {
+      this.name = name;
+      return this;
+    };
+  }
+  
+  var person = new Person("John");
+  person.sayName().changeName("Timmy").sayName();
