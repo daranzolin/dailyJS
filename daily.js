@@ -195,3 +195,13 @@ function getMonthName(mo) {
   
   var person = new Person("John");
   person.sayName().changeName("Timmy").sayName();
+
+  //Day 8: Ternary Operator
+  // If condition is true, the operator returns the value of expr1; otherwise, it returns the value of expr2. 
+
+  function getFee(isMember) {
+    return (isMember ? "$2.00" : "$10.00");
+  }
+  
+  console.log(getFee(true));
+  // expected output: "$2.00"
